@@ -1,9 +1,32 @@
 import React from 'react';
+import {Card, CardImg, CardBody, CardText, CardTitle, CardSubtitle} from 'reactstrap';
 
+function RenderCard({item}) {
+    return(
+        <Card>
+            <CardImg src={item.image} alt={item.name} />
+            <CardBody>
+                <CardTitle>{item.name}</CardTitle>
+                {item.designation ? <CardSubtitle>{item.designation}</CardSubtitle> : null}
+            </CardBody>
+            <CardText className="ml-3 mr-3 mb-3">{item.description}</CardText>
+        </Card>
+    )
+}
 function Home(props){
     return(
         <div className="container">
-            <h4>Home</h4>
+            <div className="row align-items-start">
+                <div className="col-12 col-md m-1">
+                    <RenderCard item={props.dish} />
+                </div>
+                <div className="col-12 col-md m-1">
+                    <RenderCard item={props.promotion} />
+                </div>
+                <div className="col-12 col-md m-1">
+                    <RenderCard item={props.leader} />
+                </div>
+            </div>
         </div>
     )
 }
