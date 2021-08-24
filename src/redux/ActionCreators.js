@@ -13,10 +13,7 @@ export const addComment = (dishId, rating, author, comment) => ({
 
 export const fetchDishes = () => (dispatch) => {
         dispatch(dishesLoading(true));
-
-        setTimeout(() => {
-            dispatch(addDishes(DISHES));
-        }, 2000)
+        dispatch(addDishes(DISHES));
     }
 
 export const dishesLoading = () => ({
